@@ -13,6 +13,11 @@ int main(){
 		get_row(input);
 		ToLower(input);
 		extract_arguments_from_str(input, args);
+		printf("ths input is: %s\n",input);
+                printf("arg[0] is: %s\n",args[0]);
+		printf("arg[1] is: %s\n",args[1]);
+		printf("arg[2] is: %s\n",args[2]);
+
 		ret_val =execute_command(list, args);
 		if (ret_val !=0){
 			if (ret_val ==ERROR_INVALID_VALUE){

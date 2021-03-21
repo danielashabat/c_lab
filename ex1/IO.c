@@ -91,7 +91,7 @@ void extract_arguments_from_str(char* str, char args[MAX_ARGS_NUM][MAX_LINE_LEN]
 
 	while (str[i] != '\0') {
 		if (str[i] == ' ') {
-			args[arg_num][i] = '\0';
+			args[arg_num][j] = '\0';
 			arg_num++;//set to next argument
 			i++;
 			j = 0;
