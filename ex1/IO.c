@@ -9,6 +9,7 @@
 
 //internal funcions decleration
 int myAtoi(char* str);
+int strings_equal(char *str1, char *str2);
 
 //functions definitions
 
@@ -73,14 +74,13 @@ int myAtoi(char* str)
 }
 
 
-//this function reads a line (include spaces) from the user and adds in end of line '\0'
 void get_row(char* input) {
 	int i = -1;
 	do {
 		i++;
 		scanf("%c", &input[i]);
 	} 	while (input[i] != '\n');
-	input[i] = '\0'; //replace '\n'  with '\0'
+	input[i] = '\0'; 
 }
 
 
