@@ -4,7 +4,7 @@
 #include "linked_list.h"
 
 
-//internal function declarations:
+///internal function declarations:
 Node* create_Node(int val);
 
 void insert_first_node(Node* node, Linked_List* list);
