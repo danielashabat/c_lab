@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
 
 /*functions declerations*/
 void free_lines_arr(char** lines,const int number_of_lines);
 int import_stream_to_lines_arr(FILE* stream, char*** lines, int* number_of_lines);
 
 int main(int argc, char *argv[]){
-  FILE* ptr_file=NULL;
-  FILE* stream;
+  FILE* stream=NULL;
   char** lines=NULL;
   int i=0;
   int number_of_lines=0;
@@ -17,14 +15,12 @@ int main(int argc, char *argv[]){
 
   /*this section need to be in main function*/
   if (argc == 2){
-  ptr_file=fopen(argv[1],"r");
-  if (ptr_file==NULL){
-    fprintf(stderr,"file not exist\n");
-    return 1;
+    stream=fopen(argv[1],"r");
+    if (stream==NULL){
+       fprintf(stderr,"file not exist\n");
+        return 1;
+    }
   }
-  stream=ptr_file;
-  }
-  
   else {
     stream=stdin;
   }
