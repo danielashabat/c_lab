@@ -1,11 +1,8 @@
 
 #include <stdio.h>
-#include "matches.h"
+#include <stdlib.h>
 #include "import_data.h"
-//#include <stdlib.h>
-
-
-
+#include "analyze_and_print.h"
 
 
 int main(int argc, char* argv[]) {
@@ -13,11 +10,13 @@ int main(int argc, char* argv[]) {
     char** lines = NULL;
     int i = 0;
     int number_of_lines = 0;
+    LinesData* lines_data = NULL;
+    char* search_word = NULL;
 
 
     /*this section need to be in main function*/
-    if (argc == 2) {
-        stream = fopen(argv[1], "r");
+    if (argc == 3) {
+        stream = fopen(argv[2], "r");
         if (stream == NULL) {
             fprintf(stderr, "file not exist\n");
             return 1;
@@ -26,16 +25,18 @@ int main(int argc, char* argv[]) {
     else {
         stream = stdin;
     }
-    /**********************************/
-
+    //**********************************
+//    search_word = argv[1];
+    search_word = "pink";
     import_stream_to_lines_arr(stream, &lines, &number_of_lines);
-    //DEBUG
-    printf("number of lines is: %d\n", number_of_lines);
-    for (i = 0; i < number_of_lines; i++) {
-        printf("line %d: %s", i + 1, lines[i]);
-    }
+    lines_data = create_lines_data(lines, number_of_lines);
 
-    free_lines_arr(lines, number_of_lines);
+
+    //DEBUG
+//    printf("number of lines is: %d\n", number_of_lines);
+    analyze_which_line_to_print(lines_data, search_word);
+    print_output(lines_data);
+    free_lines_data(lines_data);
     return 0;
 }
 

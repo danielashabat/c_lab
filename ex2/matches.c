@@ -31,3 +31,4 @@ int number_of_str_matches_in_line(const char* line, const char* str)
     }
     return num;
 }
+
