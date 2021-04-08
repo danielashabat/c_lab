@@ -13,6 +13,7 @@ int main(int argc, char* argv[]) {
     LinesData* lines_data = NULL;
     char* search_word = NULL;
 
+    // lalalal
 
     /*this section need to be in main function*/
     if (argc == 3) {
