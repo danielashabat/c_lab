@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "import_data.h"
 #include "analyze_and_print.h"
-#include "flags.h"
+
 
 
 int main(int argc, char* argv[]) {
     FILE* stream = NULL;
     char** lines = NULL;
-    int i = 0;
+    int i;
     int number_of_lines = 0;
     LinesData* lines_data = NULL;
     char* search_word = NULL;
@@ -32,7 +32,14 @@ int main(int argc, char* argv[]) {
     //**********************************
 //    search_word = argv[1];
     flags->i=true;
-    search_word = "africa";
+//    flags->x=true;
+    flags->n=true;
+    flags->b=true;
+    flags->v=true;
+//    flags->c=true;
+    flags->NUM=2;
+//    flags->A=true;
+    search_word = "kkk";
     import_stream_to_lines_arr(stream, &lines, &number_of_lines);
     lines_data = create_lines_data(lines, number_of_lines);
 

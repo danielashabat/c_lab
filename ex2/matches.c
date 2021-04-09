@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+void ToLower(char* str);
+
 bool is_char_sequence_match(const char* p1, const char* p2, int len)
 {
     int i = 0;
@@ -49,7 +51,7 @@ void ToLower(char* str)
 
 }
 
-bool is_str_match_line(const char* line, const char* str, bool i, bool x)
+bool is_str_match_line(const char* line, const char* str, Flags* flags)
 {
   bool ret_val;
   char* line_m = NULL;
@@ -65,16 +67,15 @@ bool is_str_match_line(const char* line, const char* str, bool i, bool x)
   strcpy(line_m,line);
   strcpy(str_m,str);
 
-  if(i)
+  if(flags->i)
   {
     ToLower(line_m);
     ToLower(str_m);
   }
 
-  if(x)
+  if(flags->x)
   {
-    //###### this needs to be handled in the future
-    ret_val = false;
+    ret_val = (strcmp(line_m,str_m)==0);
   }
   else
   {
@@ -85,3 +86,4 @@ bool is_str_match_line(const char* line, const char* str, bool i, bool x)
   free(str_m);
   return ret_val;
 }
+

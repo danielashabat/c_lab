@@ -9,6 +9,7 @@ typedef struct LinesData {
     int* line_numbers;
     int* byte_offsets;
     bool* to_print;
+    bool* to_extra_print;
 } LinesData;
 
 void free_lines_arr(char** lines, const int number_of_lines);
