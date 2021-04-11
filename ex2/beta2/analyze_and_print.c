@@ -2,12 +2,12 @@
 #include "matches.h"
 
 void flip_matches(LinesData* lines_data);
-int number_of_matches(LinesData* lines_data);
-void analyze_extra_lines_to_print(LinesData* lines_data, Flags* flags);
-void print_line(int i, LinesData* lines_data, char splitter, Flags* flags);
-void print_separation_sign_if_needed(int i, LinesData* lines_data);
+int number_of_matches(const LinesData* lines_data);
+void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags);
+void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags);
+void print_separation_sign_if_needed(int i, const LinesData* lines_data);
 
-void print_output(LinesData* lines_data, Flags* flags)
+void print_output(const LinesData* lines_data, const Flags* flags)
 {
   char splitter;
   int i;
@@ -27,7 +27,7 @@ void print_output(LinesData* lines_data, Flags* flags)
     }
   }
 }
-void print_separation_sign_if_needed(int i, LinesData* lines_data)
+void print_separation_sign_if_needed(int i, const LinesData* lines_data)
 {
   if (lines_data->line_numbers[i] < lines_data->number_of_lines)  // it is not the last line in the file
   {
@@ -37,7 +37,7 @@ void print_separation_sign_if_needed(int i, LinesData* lines_data)
   }
 }
 
-void print_line(int i, LinesData* lines_data, char splitter, Flags* flags)
+void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags)
 {
   if (flags->n) {
     printf("%d%c", lines_data->line_numbers[i], splitter);
@@ -47,7 +47,7 @@ void print_line(int i, LinesData* lines_data, char splitter, Flags* flags)
   }
   printf("%s\n", lines_data->lines[i]);
 }
-int number_of_matches(LinesData* lines_data)
+int number_of_matches(const LinesData* lines_data)
 {
   int i;
   int num = 0;
@@ -59,7 +59,7 @@ int number_of_matches(LinesData* lines_data)
   return num;
 }
 
-void analyze_which_line_to_print(LinesData* lines_data, char* search_word, Flags* flags)
+void analyze_which_line_to_print(LinesData* lines_data, char* search_word, const Flags* flags)
 {
   int i = 0;
   for (i = 0; i < lines_data->number_of_lines; i++) {
@@ -72,7 +72,7 @@ void analyze_which_line_to_print(LinesData* lines_data, char* search_word, Flags
     analyze_extra_lines_to_print(lines_data, flags);
   }
 }
-void analyze_extra_lines_to_print(LinesData* lines_data, Flags* flags)
+void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags)
 {
   int i;
   int counter = 0;

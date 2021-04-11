@@ -5,6 +5,8 @@
 #include "import_data.h"
 
 void delete_newlines_in_str_array(char** array, int number_of_lines);
+void free_lines_arr(char** lines, const int number_of_lines);
+
 
 void free_lines_arr(char** lines, int number_of_lines)
 {
