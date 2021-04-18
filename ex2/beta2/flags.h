@@ -17,5 +17,5 @@ typedef struct Flags {
 } Flags;
 
 void initialize_flags(Flags* flags);
-int set_flags_from_user(Flags* flags, int argc,const char* argv[]);
+int set_flags_from_user(Flags* flags, int argc, const char* argv[]);
 #endif
