@@ -43,8 +43,8 @@ int main(int argc, char* argv[])
   analyze_which_line_to_print(lines_data, search_word, flags);
   print_output(lines_data, flags);
   free_lines_data(lines_data);
-	if (stream != stdin) {
+  if (stream != stdin) {
 		fclose(stream);
-	}
+  }
   return 0;
 }
