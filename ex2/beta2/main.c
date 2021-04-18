@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MIN_ARGC 3
+#define MIN_ARGC 2
 
 int main(int argc, char* argv[])
 {
@@ -13,37 +13,31 @@ int main(int argc, char* argv[])
   char** lines = NULL;
   int number_of_lines = 0;
   LinesData* lines_data = NULL;
-  char* search_word = NULL;
+
   Flags flags_obj;
   Flags* flags = &flags_obj;
-
-  int file_index = argc - 1;
-  int search_word_index = argc - 2;
+  char* search_word = NULL;
+  char* file_name = NULL;
   int ret_val = 0;
 
   if (argc < MIN_ARGC) {
     fprintf(stderr, "not enough arguments\n");
     return 1;
   }
+    initialize_flags(flags);
+    extract_arguments(argc,argv,flags,&search_word,&file_name);
+    //printf("search word is: %s, filename is: %s\n",search_word,file_name);
 
-  stream = fopen(argv[file_index], "r");
-  if (stream == NULL) {
-    fprintf(stderr, "file not exist\n");
-    return 1;
+  if (file_name !=NULL) {
+      stream = fopen(file_name, "r");
+      if (stream == NULL) {
+          fprintf(stderr, "file not exist\n");
+          return 1;
+      }
+  } else {
+      stream=stdin;
   }
-  search_word = (char*)malloc(sizeof(char) * (strlen(argv[search_word_index]) + 1));
-  if (search_word == NULL) {
-    printf("ERROR: malloc() failed\n");
-    return 1;
-  }
-  strcpy(search_word, argv[search_word_index]);
-  initialize_flags(flags);
-  if (argc > MIN_ARGC) {
-    ret_val = set_flags_from_user(flags, argc, argv);
-    if (ret_val == ARGS_ERROR) {
-      return ARGS_ERROR;
-    }
-  }
+
 
   import_stream_to_lines_arr(stream, &lines, &number_of_lines);
   lines_data = create_lines_data(lines, number_of_lines);

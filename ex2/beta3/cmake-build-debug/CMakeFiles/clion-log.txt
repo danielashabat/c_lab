@@ -1,4 +1,4 @@
-C:\Users\ZOHAR\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3"
+C:\Users\Surface\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3
 -- The C compiler identification is GNU 10.2.0
 -- The CXX compiler identification is GNU 10.2.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@ C:\Users\ZOHAR\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -D
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug
