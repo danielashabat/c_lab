@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
   Flags* flags = &flags_obj;
   char* search_word = NULL;
   char* file_name = NULL;
-  int ret_val = 0;
 
   if (argc < MIN_ARGC) {
     fprintf(stderr, "not enough arguments\n");
@@ -26,7 +25,7 @@ int main(int argc, char* argv[])
   }
     initialize_flags(flags);
     extract_arguments(argc,argv,flags,&search_word,&file_name);
-    //printf("search word is: %s, filename is: %s\n",search_word,file_name);
+    printf("search word is: %s, filename is: %s\n",search_word,file_name);
 
   if (file_name !=NULL) {
       stream = fopen(file_name, "r");
@@ -44,6 +43,8 @@ int main(int argc, char* argv[])
   analyze_which_line_to_print(lines_data, search_word, flags);
   print_output(lines_data, flags);
   free_lines_data(lines_data);
-  free(search_word);
+	if (stream != stdin) {
+		fclose(stream);
+	}
   return 0;
 }
