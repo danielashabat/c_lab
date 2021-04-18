@@ -54,15 +54,15 @@ int main(int argc, char* argv[])
     //to run without argument uncomment this area
 
   //    search_word = argv[1];
-/*  flags->i = true;
+    flags->i = true;
   //    flags->x=true;
-  flags->n = false;
-  flags->b = true;
-  flags->v = false;
+  flags->n = true;
+//  flags->b = true;
+//  flags->v = true;
   //    flags->c=true;
   flags->NUM = 2;
   //    flags->A=true;
-  search_word = "pink";*/
+  search_word = "[";
 
     //**********************************
   import_stream_to_lines_arr(stream, &lines, &number_of_lines);
