@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.c
+analyze_and_print.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.h
+matches.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.h
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.h
+flags.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.h
+import_data.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.h
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.c
+string.h
+-
+flags.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.h
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.h
+stdbool.h
+-
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.c
+stdlib.h
+-
+string.h
+-
+import_data.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.h
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.h
+stdbool.h
+-
+stdio.h
+-
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/main.c
+analyze_and_print.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.h
+flags.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.h
+import_data.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.h
+stdio.h
+-
+stdlib.h
+-
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.c
+matches.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.h
+flags.h
+/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.h
+stdbool.h
+-
+
