@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/ZOHAR/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/Surface/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/ZOHAR/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /cygdrive/c/Users/Surface/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3"
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug"
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ex2.dir/depend.make
@@ -79,68 +79,68 @@ include CMakeFiles/ex2.dir/flags.make
 
 CMakeFiles/ex2.dir/main.c.o: CMakeFiles/ex2.dir/flags.make
 CMakeFiles/ex2.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ex2.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/main.c.o   -c "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ex2.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/main.c.o   -c /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/main.c
 
 CMakeFiles/ex2.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ex2.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/main.c" > CMakeFiles/ex2.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/main.c > CMakeFiles/ex2.dir/main.c.i
 
 CMakeFiles/ex2.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ex2.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/main.c" -o CMakeFiles/ex2.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/main.c -o CMakeFiles/ex2.dir/main.c.s
 
 CMakeFiles/ex2.dir/analyze_and_print.c.o: CMakeFiles/ex2.dir/flags.make
 CMakeFiles/ex2.dir/analyze_and_print.c.o: ../analyze_and_print.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ex2.dir/analyze_and_print.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/analyze_and_print.c.o   -c "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ex2.dir/analyze_and_print.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/analyze_and_print.c.o   -c /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/analyze_and_print.c
 
 CMakeFiles/ex2.dir/analyze_and_print.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ex2.dir/analyze_and_print.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.c" > CMakeFiles/ex2.dir/analyze_and_print.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/analyze_and_print.c > CMakeFiles/ex2.dir/analyze_and_print.c.i
 
 CMakeFiles/ex2.dir/analyze_and_print.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ex2.dir/analyze_and_print.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/analyze_and_print.c" -o CMakeFiles/ex2.dir/analyze_and_print.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/analyze_and_print.c -o CMakeFiles/ex2.dir/analyze_and_print.c.s
 
 CMakeFiles/ex2.dir/matches.c.o: CMakeFiles/ex2.dir/flags.make
 CMakeFiles/ex2.dir/matches.c.o: ../matches.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ex2.dir/matches.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/matches.c.o   -c "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ex2.dir/matches.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/matches.c.o   -c /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/matches.c
 
 CMakeFiles/ex2.dir/matches.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ex2.dir/matches.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.c" > CMakeFiles/ex2.dir/matches.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/matches.c > CMakeFiles/ex2.dir/matches.c.i
 
 CMakeFiles/ex2.dir/matches.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ex2.dir/matches.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/matches.c" -o CMakeFiles/ex2.dir/matches.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/matches.c -o CMakeFiles/ex2.dir/matches.c.s
 
 CMakeFiles/ex2.dir/import_data.c.o: CMakeFiles/ex2.dir/flags.make
 CMakeFiles/ex2.dir/import_data.c.o: ../import_data.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ex2.dir/import_data.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/import_data.c.o   -c "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ex2.dir/import_data.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/import_data.c.o   -c /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/import_data.c
 
 CMakeFiles/ex2.dir/import_data.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ex2.dir/import_data.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.c" > CMakeFiles/ex2.dir/import_data.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/import_data.c > CMakeFiles/ex2.dir/import_data.c.i
 
 CMakeFiles/ex2.dir/import_data.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ex2.dir/import_data.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/import_data.c" -o CMakeFiles/ex2.dir/import_data.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/import_data.c -o CMakeFiles/ex2.dir/import_data.c.s
 
 CMakeFiles/ex2.dir/flags.c.o: CMakeFiles/ex2.dir/flags.make
 CMakeFiles/ex2.dir/flags.c.o: ../flags.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ex2.dir/flags.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/flags.c.o   -c "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ex2.dir/flags.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ex2.dir/flags.c.o   -c /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/flags.c
 
 CMakeFiles/ex2.dir/flags.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ex2.dir/flags.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.c" > CMakeFiles/ex2.dir/flags.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/flags.c > CMakeFiles/ex2.dir/flags.c.i
 
 CMakeFiles/ex2.dir/flags.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ex2.dir/flags.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/flags.c" -o CMakeFiles/ex2.dir/flags.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/flags.c -o CMakeFiles/ex2.dir/flags.c.s
 
 # Object files for target ex2
 ex2_OBJECTS = \
@@ -160,7 +160,7 @@ ex2.exe: CMakeFiles/ex2.dir/import_data.c.o
 ex2.exe: CMakeFiles/ex2.dir/flags.c.o
 ex2.exe: CMakeFiles/ex2.dir/build.make
 ex2.exe: CMakeFiles/ex2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ex2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ex2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -173,6 +173,6 @@ CMakeFiles/ex2.dir/clean:
 .PHONY : CMakeFiles/ex2.dir/clean
 
 CMakeFiles/ex2.dir/depend:
-	cd "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug" "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles/ex2.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3 /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3 /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles/ex2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ex2.dir/depend
 

@@ -55,19 +55,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/ZOHAR/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/Surface/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/ZOHAR/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /cygdrive/c/Users/Surface/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3"
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug"
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -94,14 +94,14 @@ clean: CMakeFiles/ex2.dir/clean
 CMakeFiles/ex2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target ex2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target ex2"
 .PHONY : CMakeFiles/ex2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ex2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ex2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/ZOHAR/Desktop/yair/C Lab/Clion/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Surface/CLionProjects/c_lab/ex2/beta3/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/ex2.dir/rule
 
 # Convenience name for target.
