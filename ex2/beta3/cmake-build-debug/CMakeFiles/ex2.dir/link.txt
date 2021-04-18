@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/ex2.dir/main.c.o CMakeFiles/ex2.dir/analyze_and_print.c.o CMakeFiles/ex2.dir/matches.c.o CMakeFiles/ex2.dir/import_data.c.o CMakeFiles/ex2.dir/flags.c.o  -o ex2.exe -Wl,--out-implib,libex2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -31,11 +31,21 @@ void print_separation_sign_if_needed(int i, const LinesData* lines_data)
 {
   if (lines_data->line_numbers[i] < lines_data->number_of_lines)  // it is not the last line in the file
   {
-    if (!(lines_data->to_print[i + 1]) && !(lines_data->to_extra_print[i + 1])) {
+    if (!((lines_data->to_print[i + 1]) || (lines_data->to_extra_print[i + 1]))) {
       printf("--\n");
     }
   }
 }
+
+//bool is_last_print(int i,const LinesData* lines_data)
+//{
+//
+//    int j;
+//    for(j=i+1;j<lines_data->number_of_lines;j++)
+//    {
+//
+//    }
+//}
 
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags)
 {
