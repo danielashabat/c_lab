@@ -94,4 +94,3 @@ void flip_matches(LinesData* lines_data)
     lines_data->to_print[i] = !(lines_data->to_print[i]);
   }
 }
-
