@@ -63,7 +63,7 @@ void analyze_which_line_to_print(LinesData* lines_data, char* search_word, const
 {
   int i = 0;
   for (i = 0; i < lines_data->number_of_lines; i++) {
-    lines_data->to_print[i] = is_str_match_line(lines_data->lines[i], search_word, flags);
+    lines_data->to_print[i] = is_word_match_line(lines_data->lines[i], search_word, flags);
   }
   if (flags->v) {
     flip_matches(lines_data);
@@ -94,3 +94,4 @@ void flip_matches(LinesData* lines_data)
     lines_data->to_print[i] = !(lines_data->to_print[i]);
   }
 }
+

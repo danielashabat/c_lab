@@ -14,6 +14,7 @@ void free_lines_arr(char** lines, int number_of_lines)
   for (i = 0; i < number_of_lines; i++) {
     free(lines[i]);
   }
+    free(lines);
 }
 
 int import_stream_to_lines_arr(FILE* stream, char*** lines, int* number_of_lines)

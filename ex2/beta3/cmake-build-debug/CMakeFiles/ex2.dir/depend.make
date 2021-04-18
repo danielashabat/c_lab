@@ -17,6 +17,7 @@ CMakeFiles/ex2.dir/main.c.o: ../analyze_and_print.h
 CMakeFiles/ex2.dir/main.c.o: ../flags.h
 CMakeFiles/ex2.dir/main.c.o: ../import_data.h
 CMakeFiles/ex2.dir/main.c.o: ../main.c
+CMakeFiles/ex2.dir/main.c.o: ../matches.h
 
 CMakeFiles/ex2.dir/matches.c.o: ../flags.h
 CMakeFiles/ex2.dir/matches.c.o: ../matches.c
