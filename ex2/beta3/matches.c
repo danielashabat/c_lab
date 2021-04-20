@@ -50,7 +50,7 @@ void ToLower(char* str)
   }
 }
 
-bool is_word_match_line(const char* line, const char* word, Flags* flags)
+bool is_word_match_line(const char* line, const char* word, const Flags* flags)
 {
   StrRange* str_range = NULL;
   bool ret_val;

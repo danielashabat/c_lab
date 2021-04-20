@@ -8,7 +8,7 @@
 
 #define MIN_ARGC 2
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
   FILE* stream = NULL;
   char** lines = NULL;
@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     return 1;
   }
   initialize_flags(flags);
-  extract_arguments(argc, argv, flags, &search_word, &file_name);
+  extract_arguments(argc, (const char**)argv, flags, &search_word, &file_name);
 
   if (file_name != NULL) {
     stream = fopen(file_name, "r");

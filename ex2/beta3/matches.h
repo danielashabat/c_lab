@@ -9,6 +9,6 @@ typedef struct StrRange {
   char* str_bottom;
 } StrRange;
 
-bool is_word_match_line(const char* line, const char* str, Flags* flags);
+bool is_word_match_line(const char* line, const char* str, const Flags* flags);
 
 #endif
