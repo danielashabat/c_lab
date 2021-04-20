@@ -5,8 +5,11 @@
 #include "matches.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "IO.h"
 
 #define MIN_ARGC 2
+
+void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2);
 
 int main(int argc, char** argv)
 {
@@ -27,18 +30,9 @@ int main(int argc, char** argv)
   }
   initialize_flags(flags);
   extract_arguments(argc, (const char**)argv, flags, &search_word, &file_name);
+  set_stream(file_name,&stream);
 
-  if (file_name != NULL) {
-    stream = fopen(file_name, "r");
-    if (stream == NULL) {
-      fprintf(stderr, "file not exist\n");
-      return 1;
-    }
-  } else {
-    stream = stdin;
-  }
-
-  //**********************************
+    //**********************************
   import_stream_to_lines_arr(stream, &lines, &number_of_lines);
   lines_data = create_lines_data(lines, number_of_lines);
   analyze_which_line_to_print(lines_data, search_word, flags);
@@ -50,3 +44,5 @@ int main(int argc, char** argv)
   }
   return 0;
 }
+
+

@@ -1,3 +1,5 @@
+#include <string.h>
+#include <stdlib.h>
 #include "analyze_and_print.h"
 #include "matches.h"
 
@@ -110,3 +112,31 @@ void flip_matches(LinesData* lines_data)
     lines_data->to_print[i] = !(lines_data->to_print[i]);
   }
 }
+
+//example how to call this function from another function:
+//split_search_word_to_2_branches(search_word,&search_word1,&search_word2);
+void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2){
+
+  char *pre_bracket,*first_or_str, *second_or_str, *after_bracket;
+
+  *search_word1= (char*)malloc((strlen(search_word)+1)*sizeof(char));
+  *search_word2= (char*)malloc((strlen(search_word)+1)*sizeof(char));
+  if (*search_word1 == NULL || *search_word2 == NULL){
+    fprintf(stderr, "malloc() failed \n");
+    exit(1);
+  }
+  //get the first token
+  pre_bracket = strtok(search_word, "(");
+  first_or_str = strtok(NULL, "|");
+  second_or_str = strtok(NULL, ")");
+  after_bracket= second_or_str + strlen(second_or_str)+1;
+
+  strcpy(*search_word1,pre_bracket);
+  strcat(*search_word1, first_or_str);
+  strcat(*search_word1, after_bracket);
+
+  strcpy(*search_word2,pre_bracket);
+  strcat(*search_word2, second_or_str);
+  strcat(*search_word2, after_bracket);
+}
+
