@@ -10,6 +10,8 @@ void print_line(int i, const LinesData* lines_data, char splitter, const Flags* 
 void print_separation_sign_if_needed(int i, const LinesData* lines_data);
 bool is_last_print(int i, const LinesData* lines_data);
 int get_index_of_char(const char* word,const char c);
+int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim);
+
 
 void print_output(const LinesData* lines_data, const Flags* flags)
 {
@@ -131,7 +133,7 @@ int get_index_of_char(const char* word,const char c){
 }
 
 void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2){
-    int char_index=0;
+    int num_of_copied_chars=0;
     char* ptr_search_word1=NULL;
     char* ptr_search_word2=NULL;
 
@@ -144,36 +146,37 @@ void split_search_word_to_2_branches(char *search_word,char** search_word1,char*
     ptr_search_word1=*search_word1;
     ptr_search_word2=*search_word2;
 
-    char_index = get_index_of_char(search_word, '(');
-
-    //if no '(' found, copy search word as is
-    if (char_index == -1){
-        strncpy( ptr_search_word1,search_word,strlen(search_word));
-        strncpy( ptr_search_word2,search_word,strlen(search_word));
-        return;
-    }
-
     //copy chars from search_word until the first '('
-    strncpy(ptr_search_word1,search_word,char_index);
-    strncpy(ptr_search_word2,search_word,char_index);
-    search_word+=char_index+1;
-    ptr_search_word1+= char_index;
-    ptr_search_word2+= char_index;
+    num_of_copied_chars=copy_string_until_delimiter(ptr_search_word1, search_word, '(');
+    ptr_search_word1+= num_of_copied_chars;
+    copy_string_until_delimiter(ptr_search_word2,search_word,'(');
+    ptr_search_word2+= num_of_copied_chars;
+    search_word+= num_of_copied_chars + 1;
 
-    //copy the first or sting
-    char_index = get_index_of_char(search_word, '|');
-    strncpy( ptr_search_word1,search_word,char_index);
-    search_word+=char_index+1;
-    ptr_search_word1+= char_index;
+    //copy the first or string
+    num_of_copied_chars=copy_string_until_delimiter(ptr_search_word1, search_word, '|');
+    search_word+= num_of_copied_chars + 1;
+    ptr_search_word1+= num_of_copied_chars;
 
     //copy the second or string
-    char_index = get_index_of_char(search_word, ')');
-    strncpy( ptr_search_word2,search_word,char_index);
-    search_word+=char_index+1;
-    ptr_search_word2+= char_index;
+    num_of_copied_chars=copy_string_until_delimiter(ptr_search_word2, search_word, ')');
+    ptr_search_word2+= num_of_copied_chars;
+    search_word+= num_of_copied_chars + 1;
 
     //copy the rest of chars in search_word include null terminate
     strncpy( ptr_search_word1,search_word,strlen(search_word)+1);
     strncpy( ptr_search_word2,search_word,strlen(search_word)+1);
     return;
+}
+
+
+int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim){
+    int char_index=0;
+    char_index = get_index_of_char(src_str,delim);
+    if (char_index== -1){
+        fprintf(stderr,"ERROR: search word is invalid\n");
+        exit(1);
+    }
+    strncpy( dest_str,src_str,char_index);
+    return char_index;
 }
