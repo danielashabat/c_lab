@@ -9,6 +9,7 @@ void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags);
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags);
 void print_separation_sign_if_needed(int i, const LinesData* lines_data);
 bool is_last_print(int i, const LinesData* lines_data);
+int get_index_of_char(const char* word,const char c);
 
 void print_output(const LinesData* lines_data, const Flags* flags)
 {
@@ -131,9 +132,8 @@ int get_index_of_char(const char* word,const char c){
 
 void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2){
     int char_index=0;
-    int search_word_index=0;
-    int search_word1_index=0;
-    int search_word2_index=0;
+    char* ptr_search_word1=NULL;
+    char* ptr_search_word2=NULL;
 
     *search_word1= (char*)malloc((strlen(search_word)+1)*sizeof(char));
     *search_word2= (char*)malloc((strlen(search_word)+1)*sizeof(char));
@@ -141,42 +141,39 @@ void split_search_word_to_2_branches(char *search_word,char** search_word1,char*
         fprintf(stderr, "malloc() failed \n");
         exit(1);
     }
-    char* ptr_search_word1=*search_word1;
-    char* ptr_search_word2=*search_word2;
+    ptr_search_word1=*search_word1;
+    ptr_search_word2=*search_word2;
+
     char_index = get_index_of_char(search_word, '(');
+
+    //if no '(' found, copy search word as is
     if (char_index == -1){
         strncpy( ptr_search_word1,search_word,strlen(search_word));
         strncpy( ptr_search_word2,search_word,strlen(search_word));
         return;
     }
 
+    //copy chars from search_word until the first '('
+    strncpy(ptr_search_word1,search_word,char_index);
+    strncpy(ptr_search_word2,search_word,char_index);
+    search_word+=char_index+1;
+    ptr_search_word1+= char_index;
+    ptr_search_word2+= char_index;
 
-    for(search_word_index=0; search_word_index < char_index ; search_word_index++){
-        ptr_search_word1[search_word1_index]=search_word[search_word_index];
-        ptr_search_word2[search_word2_index]=search_word[search_word_index];
-        search_word1_index++;
-        search_word2_index++;
-    }
+    //copy the first or sting
     char_index = get_index_of_char(search_word, '|');
+    strncpy( ptr_search_word1,search_word,char_index);
+    search_word+=char_index+1;
+    ptr_search_word1+= char_index;
 
-    for(search_word_index=search_word_index+1; search_word_index < char_index ; search_word_index++){
-        ptr_search_word1[search_word1_index]=search_word[search_word_index];
-        search_word1_index++;
-    }
-
-
+    //copy the second or string
     char_index = get_index_of_char(search_word, ')');
-    for(search_word_index= search_word_index + 1; search_word_index < char_index ; search_word_index++){
-        ptr_search_word2[search_word2_index]=search_word[search_word_index];
-        search_word2_index++;
-    }
+    strncpy( ptr_search_word2,search_word,char_index);
+    search_word+=char_index+1;
+    ptr_search_word2+= char_index;
 
-    for(search_word_index= search_word_index + 1; search_word_index <= strlen(search_word) ; search_word_index++){
-        ptr_search_word1[search_word1_index]=search_word[search_word_index];
-        ptr_search_word2[search_word2_index]=search_word[search_word_index];
-        search_word1_index++;
-        search_word2_index++;
-    }
-
-
+    //copy the rest of chars in search_word include null terminate
+    strncpy( ptr_search_word1,search_word,strlen(search_word)+1);
+    strncpy( ptr_search_word2,search_word,strlen(search_word)+1);
+    return;
 }
