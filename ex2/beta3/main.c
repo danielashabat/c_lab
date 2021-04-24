@@ -32,6 +32,9 @@ int main(int argc, char** argv)
   extract_arguments(argc, (const char**)argv, flags, &search_word, &file_name);
   set_stream(file_name,&stream);
 
+
+  //*********/
+
     //**********************************
   import_stream_to_lines_arr(stream, &lines, &number_of_lines);
   lines_data = create_lines_data(lines, number_of_lines);

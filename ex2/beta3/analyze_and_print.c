@@ -113,30 +113,70 @@ void flip_matches(LinesData* lines_data)
   }
 }
 
-//example how to call this function from another function:
-//split_search_word_to_2_branches(search_word,&search_word1,&search_word2);
-void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2){
 
-  char *pre_bracket,*first_or_str, *second_or_str, *after_bracket;
 
-  *search_word1= (char*)malloc((strlen(search_word)+1)*sizeof(char));
-  *search_word2= (char*)malloc((strlen(search_word)+1)*sizeof(char));
-  if (*search_word1 == NULL || *search_word2 == NULL){
-    fprintf(stderr, "malloc() failed \n");
-    exit(1);
-  }
-  //get the first token
-  pre_bracket = strtok(search_word, "(");
-  first_or_str = strtok(NULL, "|");
-  second_or_str = strtok(NULL, ")");
-  after_bracket= second_or_str + strlen(second_or_str)+1;
-
-  strcpy(*search_word1,pre_bracket);
-  strcat(*search_word1, first_or_str);
-  strcat(*search_word1, after_bracket);
-
-  strcpy(*search_word2,pre_bracket);
-  strcat(*search_word2, second_or_str);
-  strcat(*search_word2, after_bracket);
+//return the first occurence of char in word, if no occurence found return -1;
+int get_index_of_char(const char* word,const char c){
+    int i=0;
+    for(i=0; i<strlen(word);i++){
+        if (word[i]== c) {
+            if ((i > 0 && word[i-1] == '\\') ){
+                continue;
+            }
+            return i;
+        }
+    }
+    return -1;
 }
 
+void split_search_word_to_2_branches(char *search_word,char** search_word1,char** search_word2){
+    int char_index=0;
+    int search_word_index=0;
+    int search_word1_index=0;
+    int search_word2_index=0;
+
+    *search_word1= (char*)malloc((strlen(search_word)+1)*sizeof(char));
+    *search_word2= (char*)malloc((strlen(search_word)+1)*sizeof(char));
+    if (*search_word1 == NULL || *search_word2 == NULL){
+        fprintf(stderr, "malloc() failed \n");
+        exit(1);
+    }
+    char* ptr_search_word1=*search_word1;
+    char* ptr_search_word2=*search_word2;
+    char_index = get_index_of_char(search_word, '(');
+    if (char_index == -1){
+        strncpy( ptr_search_word1,search_word,strlen(search_word));
+        strncpy( ptr_search_word2,search_word,strlen(search_word));
+        return;
+    }
+
+
+    for(search_word_index=0; search_word_index < char_index ; search_word_index++){
+        ptr_search_word1[search_word1_index]=search_word[search_word_index];
+        ptr_search_word2[search_word2_index]=search_word[search_word_index];
+        search_word1_index++;
+        search_word2_index++;
+    }
+    char_index = get_index_of_char(search_word, '|');
+
+    for(search_word_index=search_word_index+1; search_word_index < char_index ; search_word_index++){
+        ptr_search_word1[search_word1_index]=search_word[search_word_index];
+        search_word1_index++;
+    }
+
+
+    char_index = get_index_of_char(search_word, ')');
+    for(search_word_index= search_word_index + 1; search_word_index < char_index ; search_word_index++){
+        ptr_search_word2[search_word2_index]=search_word[search_word_index];
+        search_word2_index++;
+    }
+
+    for(search_word_index= search_word_index + 1; search_word_index <= strlen(search_word) ; search_word_index++){
+        ptr_search_word1[search_word1_index]=search_word[search_word_index];
+        ptr_search_word2[search_word2_index]=search_word[search_word_index];
+        search_word1_index++;
+        search_word2_index++;
+    }
+
+
+}
