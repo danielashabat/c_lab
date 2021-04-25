@@ -9,7 +9,7 @@ void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags);
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags);
 void print_separation_sign_if_needed(int i, const LinesData* lines_data);
 bool is_last_print(int i, const LinesData* lines_data);
-int get_index_of_char(const char* word,const char c);
+
 int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim);
 
 
@@ -123,8 +123,13 @@ int get_index_of_char(const char* word,const char c){
     int i=0;
     for(i=0; i<strlen(word);i++){
         if (word[i]== c) {
-            if ((i > 0 && word[i-1] == '\\') ){
-                continue;
+            if ((i > 0) )
+            {
+                if(word[i-1] == '\\')
+                {
+                    continue;
+                }
+
             }
             return i;
         }

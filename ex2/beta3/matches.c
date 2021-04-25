@@ -1,5 +1,6 @@
 
 #include "matches.h"
+#include "analyze_and_print.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +13,8 @@ bool is_str_range_in_line(const char* line, const char* str_top, const char* str
 StrRange* create_str_range(int size);
 void free_str_range(StrRange* str_range);
 StrRange* interpret_regular_expression(const char* search_word);
+bool is_word_in_line_flagE_case_rec(const char* line, const char* word, bool x_flag);
+
 bool is_char_range_sequence_match(const char* line, const char* str_top, const char* str_bottom, int len)
 {
   int i = 0;
@@ -70,14 +73,11 @@ bool is_word_match_line(const char* line, const char* word, const Flags* flags)
     ToLower(line_m);
     ToLower(word_m);
   }
-  if (flags->E) {
-    str_range = interpret_regular_expression(word_m);
-    ret_val = is_str_range_in_line(line_m, str_range->str_top, str_range->str_bottom);
-    if (flags->x) {
-      ret_val = ret_val && (strlen(line_m) == strlen(str_range->str_top));
-    }
-    free_str_range(str_range);
-  } else {
+  if (flags->E)
+  {
+      ret_val = is_word_in_line_flagE_case_rec(line_m, word_m, flags->x);
+  }
+  else {
     ret_val = is_str_range_in_line(line_m, word_m, word_m);
     if (flags->x) {
       ret_val = ret_val && (strlen(line_m) == strlen(word_m));
@@ -88,6 +88,35 @@ bool is_word_match_line(const char* line, const char* word, const Flags* flags)
   free(word_m);
   return ret_val;
 }
+
+bool is_word_in_line_flagE_case_rec(const char* line, const char* word, bool x_flag)
+{
+    StrRange* str_range = NULL;
+    bool ret_val;
+    char* search_word1 = NULL;
+    char* search_word2 = NULL;
+    if(get_index_of_char(word,'(') != -1)
+    {
+        split_search_word_to_2_branches(word, &search_word1, &search_word2);
+        ret_val = is_word_in_line_flagE_case_rec(line,search_word1, x_flag);
+        ret_val = ret_val || is_word_in_line_flagE_case_rec(line,search_word2, x_flag);
+        free(search_word1);
+        free(search_word2);
+        return(ret_val);
+    }
+    else
+    {
+        str_range = interpret_regular_expression(word);
+        ret_val = is_str_range_in_line(line, str_range->str_top, str_range->str_bottom);
+        if (x_flag) {
+            ret_val = ret_val && (strlen(line) == strlen(str_range->str_top));
+        }
+        free_str_range(str_range);
+        return ret_val;
+    }
+}
+
+
 
 StrRange* create_str_range(int size)
 {
