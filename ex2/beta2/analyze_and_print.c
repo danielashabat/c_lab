@@ -6,6 +6,7 @@ int number_of_matches(const LinesData* lines_data);
 void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags);
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags);
 void print_separation_sign_if_needed(int i, const LinesData* lines_data);
+bool is_last_print(int i, const LinesData* lines_data);
 
 void print_output(const LinesData* lines_data, const Flags* flags)
 {
@@ -29,12 +30,27 @@ void print_output(const LinesData* lines_data, const Flags* flags)
 }
 void print_separation_sign_if_needed(int i, const LinesData* lines_data)
 {
-  if (lines_data->line_numbers[i] < lines_data->number_of_lines)  // it is not the last line in the file
-  {
-    if (!(lines_data->to_print[i + 1]) && !(lines_data->to_extra_print[i + 1])) {
-      printf("--\n");
+  if (lines_data->line_numbers[i] == lines_data->number_of_lines) {
+    return;
+  }
+  if ((lines_data->to_print[i + 1]) || (lines_data->to_extra_print[i + 1])) {
+    return;
+  }
+  if (is_last_print(i, lines_data)) {
+    return;
+  }
+  printf("--\n");
+}
+
+bool is_last_print(int i, const LinesData* lines_data)
+{
+  int j;
+  for (j = i + 1; j < lines_data->number_of_lines; j++) {
+    if ((lines_data->to_print[j]) || (lines_data->to_extra_print[j])) {
+      return false;
     }
   }
+  return true;
 }
 
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags)
@@ -63,7 +79,7 @@ void analyze_which_line_to_print(LinesData* lines_data, char* search_word, const
 {
   int i = 0;
   for (i = 0; i < lines_data->number_of_lines; i++) {
-    lines_data->to_print[i] = is_str_match_line(lines_data->lines[i], search_word, flags);
+    lines_data->to_print[i] = is_word_match_line((const char*)lines_data->lines[i], search_word, flags);
   }
   if (flags->v) {
     flip_matches(lines_data);

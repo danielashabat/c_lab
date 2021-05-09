@@ -1,4 +1,5 @@
 
+
 #ifndef FLAGS
 #define FLAGS
 #include <stdbool.h>
@@ -16,6 +17,6 @@ typedef struct Flags {
   bool E;
 } Flags;
 
-void initialize_flags(Flags* flags);
+void initialize_flags(Flags *flags);
 int extract_arguments(int argc, const char **argv, Flags *flags, char **search_word, char **file_name);
 #endif
