@@ -35,10 +35,10 @@ int main(int argc, char** argv)
     //search_word = "a\\|\\)(b|kaba)[a-c]";
     //search_word = "\\(a\\|\\)";
 //    search_word = ".(a|)\\|\\)";
-    search_word = "\\[(1|)[0-9]\\]";
+/*    search_word = "\\[(1|)[0-9]\\]";
     flags->i=true;
     flags->n=true;
-    flags->E=true;
+    flags->E=true;*/
 //    flags->x=true;
 
     import_stream_to_lines_arr(stream, &lines, &number_of_lines);
