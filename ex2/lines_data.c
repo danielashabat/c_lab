@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "import_data.h"
+#include "lines_data.h"
 
 void delete_newlines_in_str_array(char** array, int number_of_lines);
 void free_lines_arr(char** lines, const int number_of_lines);
@@ -18,7 +18,7 @@ void free_lines_arr(char** lines, int number_of_lines)
 
 int import_stream_to_lines_arr(FILE* stream, char*** lines, int* number_of_lines)
 {
-  size_t size = 10;
+  size_t size = 1;
   int status = 0;
   int i = 0;
   char** array = NULL;

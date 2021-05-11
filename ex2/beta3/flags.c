@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void set_flag(Flags* flags, const char** argv, int* index);
-int is_flag(const char* argument);
+
 
 void initialize_flags(Flags* flags)
 {
@@ -20,24 +19,7 @@ void initialize_flags(Flags* flags)
   flags->E = false;
 }
 
-int extract_arguments(int argc, const char** argv, Flags* flags, const char** search_word, const char** file_name)
-{
-  int i = 1;
 
-  for (i = 1; i < argc; i++) {
-
-    if (is_flag(argv[i])) {
-      set_flag(flags, argv, &i);
-    } else {
-      if (*search_word == NULL) {
-        *search_word = argv[i];
-      } else {
-        *file_name = argv[i];
-      }
-    }
-  }
-  return 0;
-}
 int is_flag(const char* argument)
 {
   if (argument[0] == '-') {

@@ -1,5 +1,5 @@
-#ifndef IMPORT_DATA
-#define IMPORT_DATA
+#ifndef LINES_DATA
+#define LINES_DATA
 #include <stdbool.h>
 #include <stdio.h>
 

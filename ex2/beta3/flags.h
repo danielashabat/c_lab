@@ -15,5 +15,6 @@ typedef struct Flags {
 } Flags;
 
 void initialize_flags(Flags *flags);
-int extract_arguments(int argc, const char **argv, Flags *flags, const char **search_word, const char **file_name);
+void set_flag(Flags* flags, const char** argv, int* index);
+int is_flag(const char* argument);
 #endif
