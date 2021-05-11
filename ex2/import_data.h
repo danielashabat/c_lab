@@ -1,5 +1,5 @@
-#ifndef LINES_DATA
-#define LINES_DATA
+#ifndef IMPORT_DATA
+#define IMPORT_DATA
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -15,4 +15,5 @@ typedef struct LinesData {
 int import_stream_to_lines_arr(FILE* stream, char*** lines, int* number_of_lines);
 LinesData* create_lines_data(char** lines, int number_of_lines);
 void free_lines_data(LinesData* lines_data);
+void set_stream(const char* file_name, FILE** stream);
 #endif

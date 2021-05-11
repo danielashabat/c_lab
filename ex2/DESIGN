@@ -1,2 +1,0 @@
-IO.h this module includes input and output functions for interactive operation with the user.
-flags.h this module handles the flags given by the user (for ex. -v).

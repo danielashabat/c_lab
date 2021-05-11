@@ -1,5 +1,4 @@
-#include "matches.h"
-#include "analyze_and_print.h"
+#include "line_check.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +12,11 @@ bool is_str_range_in_line(const char* line, const char* str_top, const char* str
 StrRange* create_str_range(int size);
 void free_str_range(StrRange* str_range);
 StrRange* interpret_regular_expression(const char* search_word);
-bool is_word_in_line_flagE_case_rec(const char* line, const char* word, bool x_flag);
+bool is_word_in_line_rec(const char* line, const char* word, bool x_flag);
+int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim);
+void split_search_word_to_2_branches(const char* search_word, char** search_word1, char** search_word2);
+int get_index_of_char(const char* word, const char c);
+
 
 bool is_char_range_sequence_match(const char* line, const char* str_top, const char* str_bottom, int len)
 {
@@ -73,7 +76,7 @@ bool is_word_match_line(const char* line, const char* word, const Flags* flags)
     ToLower(word_m);
   }
   if (flags->E) {
-    ret_val = is_word_in_line_flagE_case_rec(line_m, word_m, flags->x);
+    ret_val = is_word_in_line_rec(line_m, word_m, flags->x);
   } else {
     ret_val = is_str_range_in_line(line_m, word_m, word_m);
     if (flags->x) {
@@ -86,7 +89,7 @@ bool is_word_match_line(const char* line, const char* word, const Flags* flags)
   return ret_val;
 }
 
-bool is_word_in_line_flagE_case_rec(const char* line, const char* word, bool x_flag)
+bool is_word_in_line_rec(const char* line, const char* word, bool x_flag)
 {
   StrRange* str_range = NULL;
   bool ret_val;
@@ -94,8 +97,8 @@ bool is_word_in_line_flagE_case_rec(const char* line, const char* word, bool x_f
   char* search_word2 = NULL;
   if (get_index_of_char(word, '(') != -1) {
     split_search_word_to_2_branches(word, &search_word1, &search_word2);
-    ret_val = is_word_in_line_flagE_case_rec(line, search_word1, x_flag);
-    ret_val = ret_val || is_word_in_line_flagE_case_rec(line, search_word2, x_flag);
+    ret_val = is_word_in_line_rec(line, search_word1, x_flag);
+    ret_val = ret_val || is_word_in_line_rec(line, search_word2, x_flag);
     free(search_word1);
     free(search_word2);
     return (ret_val);
@@ -171,4 +174,68 @@ StrRange* interpret_regular_expression(const char* search_word)
   //    printf("top: %s\n",str_range->str_top);
   //    printf("bottom: %s\n",str_range->str_bottom);
   return str_range;
+}
+
+// return the first occurence of char in word, if no occurence found return -1;
+int get_index_of_char(const char* word, const char c)
+{
+  int i = 0;
+  for (i = 0; i < strlen(word); i++) {
+    if ((i == 0) && word[i] == c) {
+      return i;
+    } else if ((word[i] == c) && (word[i - 1] != '\\')) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+void split_search_word_to_2_branches(const char* search_word, char** search_word1, char** search_word2)
+{
+  int num_of_copied_chars = 0;
+  char* ptr_search_word1 = NULL;
+  char* ptr_search_word2 = NULL;
+
+  *search_word1 = (char*)malloc((strlen(search_word) + 1) * sizeof(char));
+  *search_word2 = (char*)malloc((strlen(search_word) + 1) * sizeof(char));
+  if (*search_word1 == NULL || *search_word2 == NULL) {
+    fprintf(stderr, "malloc() failed \n");
+    exit(1);
+  }
+  ptr_search_word1 = *search_word1;
+  ptr_search_word2 = *search_word2;
+
+  // copy chars from search_word until the first '('
+  num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '(');
+  ptr_search_word1 += num_of_copied_chars;
+  copy_string_until_delimiter(ptr_search_word2, search_word, '(');
+  ptr_search_word2 += num_of_copied_chars;
+  search_word += num_of_copied_chars + 1;
+
+  // copy the first or string
+  num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '|');
+  search_word += num_of_copied_chars + 1;
+  ptr_search_word1 += num_of_copied_chars;
+
+  // copy the second or string
+  num_of_copied_chars = copy_string_until_delimiter(ptr_search_word2, search_word, ')');
+  ptr_search_word2 += num_of_copied_chars;
+  search_word += num_of_copied_chars + 1;
+
+  // copy the rest of chars in search_word include null terminate
+  strncpy(ptr_search_word1, search_word, strlen(search_word) + 1);
+  strncpy(ptr_search_word2, search_word, strlen(search_word) + 1);
+  return;
+}
+
+int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim)
+{
+  int char_index = 0;
+  char_index = get_index_of_char(src_str, delim);
+  if (char_index == -1) {
+    fprintf(stderr, "ERROR: search word is invalid\n");
+    exit(1);
+  }
+  strncpy(dest_str, src_str, char_index);
+  return char_index;
 }

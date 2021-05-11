@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "lines_data.h"
+#include "import_data.h"
 
 void delete_newlines_in_str_array(char** array, int number_of_lines);
 void free_lines_arr(char** lines, const int number_of_lines);
@@ -106,4 +106,17 @@ void free_lines_data(LinesData* lines_data)
   free(lines_data->to_print);
   free(lines_data->to_extra_print);
   free(lines_data);
+}
+
+void set_stream(const char* file_name, FILE** stream)
+{
+  if (file_name != NULL) {
+    *stream = fopen(file_name, "r");
+    if (*stream == NULL) {
+      fprintf(stderr, "file not exist\n");
+      exit(1);
+    }
+  } else {
+    *stream = stdin;
+  }
 }

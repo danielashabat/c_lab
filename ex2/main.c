@@ -1,8 +1,6 @@
 
-#include "IO.h"
+
 #include "analyze_and_print.h"
-#include "lines_data.h"
-#include "matches.h"
 #include <stdio.h>
 #include <stdlib.h>
 

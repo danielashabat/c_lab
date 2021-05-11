@@ -1,5 +1,5 @@
 
-#include "flags.h"
+#include "handle_arguments.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -60,4 +60,23 @@ void set_flag(Flags* flags, const char** argv, int* index)
     default:
       printf("ERROR: '%s' this is not a valid flag\n", flag);
   }
+}
+
+int extract_arguments(int argc, const char** argv, Flags* flags, const char** search_word, const char** file_name)
+{
+  int i = 1;
+
+  for (i = 1; i < argc; i++) {
+
+    if (is_flag(argv[i])) {
+      set_flag(flags, argv, &i);
+    } else {
+      if (*search_word == NULL) {
+        *search_word = argv[i];
+      } else {
+        *file_name = argv[i];
+      }
+    }
+  }
+  return 0;
 }

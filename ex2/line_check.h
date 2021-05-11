@@ -1,7 +1,7 @@
-#ifndef MATCHES
-#define MATCHES
+#ifndef LINE_CHECK
+#define LINE_CHECK
 
-#include "flags.h"
+#include "handle_arguments.h"
 #include <stdbool.h>
 
 typedef struct StrRange {

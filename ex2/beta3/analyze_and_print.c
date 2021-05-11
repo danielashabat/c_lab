@@ -9,8 +9,8 @@ void analyze_extra_lines_to_print(LinesData* lines_data, const Flags* flags);
 void print_line(int i, const LinesData* lines_data, char splitter, const Flags* flags);
 void print_separation_sign_if_needed(int i, const LinesData* lines_data);
 bool is_last_print(int i, const LinesData* lines_data);
-
 int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim);
+
 
 void print_output(const LinesData* lines_data, const Flags* flags)
 {
@@ -67,6 +67,8 @@ void print_line(int i, const LinesData* lines_data, char splitter, const Flags* 
   }
   printf("%s\n", lines_data->lines[i]);
 }
+
+
 int number_of_matches(const LinesData* lines_data)
 {
   int i;
@@ -78,6 +80,7 @@ int number_of_matches(const LinesData* lines_data)
   }
   return num;
 }
+
 
 void analyze_which_line_to_print(LinesData* lines_data, const char* search_word, const Flags* flags)
 {
