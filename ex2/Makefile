@@ -26,6 +26,7 @@ clean:
 	-rm *.o my_grep
 
 all: my_grep
-	
+
 test: all
 	~nimrodav/grep_tests/run_all.sh
+	~danielas1/git/ex2/my_tests.sh

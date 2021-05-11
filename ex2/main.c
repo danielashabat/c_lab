@@ -29,16 +29,6 @@ int main(int argc, char** argv)
   extract_arguments(argc, (const char**)argv, flags, &search_word, &file_name);
   set_stream(file_name, &stream);
 
-  // debug details
-  // search_word = "a\\|\\)(b|kaba)[a-c]";
-  // search_word = "\\(a\\|\\)";
-  //    search_word = ".(a|)\\|\\)";
-  /*    search_word = "\\[(1|)[0-9]\\]";
-      flags->i=true;
-      flags->n=true;
-      flags->E=true;*/
-  //    flags->x=true;
-
   import_stream_to_lines_arr(stream, &lines, &number_of_lines);
   lines_data = create_lines_data(lines, number_of_lines);
   analyze_which_line_to_print(lines_data, search_word, flags);

@@ -1,4 +1,3 @@
-
 #include "matches.h"
 #include "analyze_and_print.h"
 #include <stdio.h>
@@ -6,6 +5,7 @@
 #include <string.h>
 
 #define CHAR_RANGE_EXP_LENGTH 5  //  [a|b] -> 5 chars
+#define GAP_TO_TOP_CHAR 3
 
 void ToLower(char* str);
 bool is_char_range_sequence_match(const char* line, const char* str_top, const char* str_bottom, int len);
@@ -154,7 +154,7 @@ StrRange* interpret_regular_expression(const char* search_word)
         str_range->str_bottom[place] = '!';
         break;
       case '[':
-        str_range->str_top[place] = search_word[i + 3];
+        str_range->str_top[place] = search_word[i + GAP_TO_TOP_CHAR];
         str_range->str_bottom[place] = search_word[i + 1];
         i = i + CHAR_RANGE_EXP_LENGTH - 1;
         break;

@@ -1,7 +1,5 @@
-#include <stdlib.h>
 #include "IO.h"
-
-
+#include <stdlib.h>
 
 void set_stream(const char* file_name, FILE** stream)
 {

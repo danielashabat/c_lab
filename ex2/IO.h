@@ -5,4 +5,4 @@
 
 void set_stream(const char* file_name, FILE** stream);
 
-#endif  
+#endif
