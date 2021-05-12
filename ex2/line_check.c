@@ -169,9 +169,6 @@ StrRange* interpret_regular_expression(const char* search_word)
   str_range->str_top[place] = '\0';
   str_range->str_bottom[place] = '\0';
 
-  //    printf("search: %s\n",search_word);
-  //    printf("top: %s\n",str_range->str_top);
-  //    printf("bottom: %s\n",str_range->str_bottom);
   return str_range;
 }
 
@@ -204,24 +201,24 @@ void split_search_word_to_2_branches(const char* search_word, char** search_word
   ptr_search_word1 = *search_word1;
   ptr_search_word2 = *search_word2;
 
-  // copy chars from search_word until the first '('
+
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '(');
   ptr_search_word1 += num_of_copied_chars;
   copy_string_until_delimiter(ptr_search_word2, search_word, '(');
   ptr_search_word2 += num_of_copied_chars;
   search_word += num_of_copied_chars + 1;
 
-  // copy the first or string
+
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '|');
   search_word += num_of_copied_chars + 1;
   ptr_search_word1 += num_of_copied_chars;
 
-  // copy the second or string
+
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word2, search_word, ')');
   ptr_search_word2 += num_of_copied_chars;
   search_word += num_of_copied_chars + 1;
 
-  // copy the rest of chars in search_word include null terminate
+
   strncpy(ptr_search_word1, search_word, strlen(search_word) + 1);
   strncpy(ptr_search_word2, search_word, strlen(search_word) + 1);
   return;
