@@ -17,7 +17,6 @@ int copy_string_until_delimiter(char* dest_str, const char* src_str, char delim)
 void split_search_word_to_2_branches(const char* search_word, char** search_word1, char** search_word2);
 int get_index_of_char(const char* word, const char c);
 
-
 bool is_char_range_sequence_match(const char* line, const char* str_top, const char* str_bottom, int len)
 {
   int i = 0;

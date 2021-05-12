@@ -1,6 +1,8 @@
 
 
 #include "analyze_and_print.h"
+#include "handle_arguments.h"
+#include "import_data.h"
 #include <stdio.h>
 #include <stdlib.h>
 

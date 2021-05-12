@@ -1,6 +1,5 @@
 #! /usr/bin/env tcsh
 
-echo "start running my_tests!"
 
 
 grep -E -i "(cady|mr\.)" mean_girls.txt  > out
@@ -17,4 +16,3 @@ grep -E -b -v -i "(1|)[0-9]" mean_girls.txt  > out
 rm out
 
 
-echo "Done running my_tests !"

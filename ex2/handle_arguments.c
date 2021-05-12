@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void set_flag(Flags* flags, const char** argv, int* index);
+int is_flag(const char* argument);
 
 void initialize_flags(Flags* flags)
 {
@@ -16,7 +18,6 @@ void initialize_flags(Flags* flags)
   flags->NUM = 0;
   flags->E = false;
 }
-
 
 int is_flag(const char* argument)
 {

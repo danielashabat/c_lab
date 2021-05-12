@@ -1,25 +1,22 @@
-my_grep: main.o IO.o import_data.o analyze_and_print.o flags.o matches.o
-	gcc -o my_grep main.o flags.o import_data.o analyze_and_print.o matches.o IO.o
+my_grep: main.o import_data.o analyze_and_print.o handle_arguments.o line_check.o
+	gcc -o my_grep main.o  import_data.o analyze_and_print.o handle_arguments.o line_check.o
 
-main.o: main.c IO.c  import_data.h analyze_and_print.h flags.h
+main.o: main.c import_data.h analyze_and_print.h handle_arguments.h
 	gcc -Wall -c main.c
 
-IO.o: IO.c  IO.h
-	gcc -Wall -c IO.c
+handle_arguments.o: handle_arguments.h handle_arguments.c 
+	 gcc -Wall -c handle_arguments.c
 
+line_check.o: line_check.c  line_check.h handle_arguments.h 
+	gcc -Wall -c line_check.c
+	
 
 import_data.o:import_data.c  import_data.h
-	 gcc -Wall -c import_data.c
+		 gcc -Wall -c import_data.c
 
-analyze_and_print.o:analyze_and_print.c  flags.h import_data.h analyze_and_print.h matches.h
-	gcc -Wall -c analyze_and_print.c			
+analyze_and_print.o:analyze_and_print.c  import_data.h analyze_and_print.h handle_arguments.h line_check.h
+		gcc -Wall -c analyze_and_print.c			
 
-matches.o: matches.h flags.h matches.c
-	gcc -Wall -c matches.c
-
-
-flags.o: flags.h flags.c
-	gcc -Wall -c flags.c
 
 .PHONY: all clean test
 clean:
