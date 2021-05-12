@@ -1,0 +1,16 @@
+modules:
+
+import_data - contains all the functions that import the data from a form of stream to a struct called
+lines_data that holds each line as a string along with additional meta-data.
+
+handle_arguments - extract all the information from the command line - search word, flags, and file
+directory (if exist) and store them in suitable structs and variables.
+
+analyze_and_print - this module is responsible for the analysis of the the the data in lines_data -
+to iterate on all the data choose which line match the search word. after the analysis is finished it
+prints the output in the correct format.
+
+line_check - responsible for determine the match between a single line and a search word. This module
+contains the public function "is_word_match_line" that analyze_and_print module uses iteratively on each line.
+
+
