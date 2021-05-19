@@ -201,23 +201,19 @@ void split_search_word_to_2_branches(const char* search_word, char** search_word
   ptr_search_word1 = *search_word1;
   ptr_search_word2 = *search_word2;
 
-
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '(');
   ptr_search_word1 += num_of_copied_chars;
   copy_string_until_delimiter(ptr_search_word2, search_word, '(');
   ptr_search_word2 += num_of_copied_chars;
   search_word += num_of_copied_chars + 1;
 
-
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word1, search_word, '|');
   search_word += num_of_copied_chars + 1;
   ptr_search_word1 += num_of_copied_chars;
 
-
   num_of_copied_chars = copy_string_until_delimiter(ptr_search_word2, search_word, ')');
   ptr_search_word2 += num_of_copied_chars;
   search_word += num_of_copied_chars + 1;
-
 
   strncpy(ptr_search_word1, search_word, strlen(search_word) + 1);
   strncpy(ptr_search_word2, search_word, strlen(search_word) + 1);

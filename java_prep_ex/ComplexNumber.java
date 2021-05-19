@@ -1,6 +1,6 @@
 public class ComplexNumber{
     private double real, img;
-    private static final double EPSILON = 0.001;
+    private final double EPSILON = 0.001;
     
     public ComplexNumber(double my_real, double my_img){
         real = my_real;
@@ -79,10 +79,4 @@ public class ComplexNumber{
         return false;
     }
     
-    public static void main(String []args){
-        ComplexNumber c1 = new ComplexNumber(9, -1);
-        ComplexNumber c2 = new ComplexNumber(1, 11);
-        ComplexNumber c4 = new ComplexNumber(9, -1.0000000001);
-        System.out.println(c1.almostEquals(c2));
-    }
 }
