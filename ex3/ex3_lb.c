@@ -5,7 +5,9 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#define MAX 80
+#include<time.h>
+#include <unistd.h>
+
 #define SA struct sockaddr
 
 #define UPPER_PORT_LIMIT 63999
@@ -25,6 +27,7 @@ int main()
   int sock_http;
   struct sockaddr_in cli;
 
+  srand(time(0));
   // socket create and verification
   sock_server = create_new_socket();
   bind_and_listen(sock_server, SERVER);
@@ -52,9 +55,13 @@ int main()
 
   // After chatting close the socket
   close(sock_server);
+  close(sock_http);
 }
 
-int generate_random_port() { return (rand() % (UPPER_PORT_LIMIT - LOWER_PORT_LIMIT + 1)) + LOWER_PORT_LIMIT; }
+int generate_random_port() {
+
+  return (rand() % (UPPER_PORT_LIMIT - LOWER_PORT_LIMIT + 1)) + LOWER_PORT_LIMIT;
+}
 
 void write_port_to_file(int port, int socket_type)
 {
