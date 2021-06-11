@@ -1,12 +1,11 @@
 
 #ifndef BUFFER
 #define BUFFER
-typedef struct Buffer
-{
-    char* data;
-    int chars_allocated;
-    int chars_count;
-    int suffixes;
+typedef struct Buffer {
+  char* data;
+  int chars_allocated;
+  int chars_count;
+  int suffixes;
 } Buffer;
 
 void initialize_buffer(Buffer* buff);

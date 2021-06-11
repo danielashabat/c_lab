@@ -1,0 +1,21 @@
+Add_end 2
+print
+Add_end 10
+print
+ADD_eNd 200
+print
+ADd_after 400 10
+print
+Del 0
+print
+deL 1
+print
+Del 1
+print
+deL 0
+print
+add_Start 808
+print
+index 808
+print
+exit
