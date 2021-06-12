@@ -7,6 +7,10 @@
 #include <sys/types.h>
 #include<time.h>
 #include <unistd.h>
+#include <assert.h>
+#include "buffer.h"
+#include "send_recv_tools.h"
+
 
 #define SA struct sockaddr
 
@@ -47,13 +51,24 @@ int main()
     printf("server acccept the client...\n");
 
   // insert Functions here:
-  char buffer_rcv[100];
-  char buffer_send[10] = "fine";
-  recv(connfd, buffer_rcv, 100, 0);
-  printf("-LB-recieved message:%s\n", buffer_rcv);
-  send(connfd, buffer_send, 10, 0);
+  Buffer buffer;
+  buffer.data=NULL;
+  initialize_buffer(&buffer);
 
-  // After chatting close the socket
+  //receive message from HTTP until 1 suffixes
+  char test_msg[49]="Accept-Language: en-US,en;q=0.8,he;q=0.6\\r\\n\\r\\n";
+  append_to_buffer(&buffer,test_msg,49);
+  print_buffer(&buffer);
+  printf("num of suffix: %d\n",buffer.suffixes);
+  assert(buffer.suffixes==1);
+  //send message to server
+  SendMsg(connfd,&buffer, 49);
+
+  //receive message from server until 2 suffixes
+
+  //wait for another message from HTTP...
+
+  //close the socket
   close(sock_server);
   close(sock_http);
 }
