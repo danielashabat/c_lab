@@ -60,17 +60,20 @@ int main()
   append_to_buffer(&buffer,test_msg,49);
   print_buffer(&buffer);
   printf("num of suffix: %d\n",buffer.suffixes);
-  assert(buffer.suffixes==1);
+//  assert(buffer.suffixes==1);
+
   //send message to server
   SendMsg(connfd,&buffer, 49);
 
   //receive message from server until 2 suffixes
-
+	initialize_buffer(&buffer);
+	ReceiveMsg(connfd,&buffer, 2);
   //wait for another message from HTTP...
 
   //close the socket
   close(sock_server);
   close(sock_http);
+	return 0;
 }
 
 int generate_random_port() {

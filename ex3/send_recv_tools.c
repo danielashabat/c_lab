@@ -20,6 +20,10 @@ int ReceiveMsg(int socket, Buffer* BufferToReceive, int required_suffixes){
     }
 
     append_to_buffer(BufferToReceive, temp_buffer, recv_len);
+
+	//for debug:
+	printf("-LB- recieved message:\n");
+	print_buffer(BufferToReceive);
     message_len += recv_len;
   }
   return message_len;
