@@ -10,7 +10,6 @@
 #include <time.h>
 #include <unistd.h>
 
-
 #define UPPER_PORT_LIMIT 63999
 #define LOWER_PORT_LIMIT 1023
 #define FILE_NAME 15
@@ -44,10 +43,10 @@ int main()
       printf("lb acccept failed...\n");
       exit(0);
     }
- }
+  }
   buffer.data = NULL;
   while (1) {
-    for(i=0;i<NUM_SERVERS;i++) {
+    for (i = 0; i < NUM_SERVERS; i++) {
       con_http = accept(sock_http, (struct sockaddr*)&http, &len);
       if (con_http < 0) {
         printf("lb acccept failed...\n");
@@ -67,7 +66,7 @@ int main()
   }
   close(sock_server);
   close(sock_http);
-  free(&buffer);
+  free_buffer(&buffer);
   return 0;
 }
 
@@ -113,14 +112,14 @@ void bind_and_listen(int sockfd, int socket_type)
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(port);
-  } while ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0);
+  } while ((bind(sockfd, (struct sockaddr*)&servaddr, sizeof(servaddr))) != 0);
 
   printf("Socket successfully binded..\n");
 
   if ((listen(sockfd, 1)) != 0) {
     printf("Listen failed...\n");
     exit(0);
-  } else{
+  } else {
     printf("lb listening..\n");
   }
 }
