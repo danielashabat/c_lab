@@ -1,0 +1,16 @@
+#!/usr/bin/python2.7 -tt
+import sys
+from socket import *
+
+port= int(sys.argv[1])
+print ("port number is:" + str(port))
+
+
+s = socket()
+print("try to connect load-balancer")
+s.connect(('localhost', port))
+msg=s.recv(49)
+print("-SERVER-recieved message:"+msg)
+msg= ": 5\r\n\r\nabcde\r\n\r\n'"
+s.send(msg)
+s.close()

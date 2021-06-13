@@ -1,4 +1,3 @@
-
 #ifndef BUFFER
 #define BUFFER
 typedef struct Buffer {
