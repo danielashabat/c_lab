@@ -8,7 +8,7 @@
 #define SUFFIX_LENGTH 4
 
 void update_number_of_suffixes(Buffer* buff);
-bool is_char_sequence_match(char* word1, char* word2, int len);
+bool is_char_sequence_match(const char* word1, const char* word2, int len);
 
 void initialize_buffer(Buffer* buff)
 {
@@ -27,7 +27,7 @@ void initialize_buffer(Buffer* buff)
 
 void free_buffer(Buffer* buff) { free(buff->data); }
 
-void append_to_buffer(Buffer* buff, char* text, int chars_to_write)
+void append_to_buffer(Buffer* buff,const char* text, int chars_to_write)
 {
   int i;
 try_to_write:
@@ -73,7 +73,7 @@ void update_number_of_suffixes(Buffer* buff)
   }
 }
 
-bool is_char_sequence_match(char* word1, char* word2, int len)
+bool is_char_sequence_match(const char* word1, const char* word2, int len)
 {
   int i = 0;
   for (i = 0; i < len; i++) {

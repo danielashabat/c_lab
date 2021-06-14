@@ -9,6 +9,6 @@ typedef struct Buffer {
 
 void initialize_buffer(Buffer* buff);
 void free_buffer(Buffer* buff);
-void append_to_buffer(Buffer* buff, char* text, int chars_to_write);
+void append_to_buffer(Buffer* buff,const char* text, int chars_to_write);
 void print_buffer(Buffer* buff);
 #endif
