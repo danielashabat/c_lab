@@ -7,11 +7,7 @@
 #include <time.h>
 #include <unistd.h>
 
-
 #define NUM_SERVERS 3
-
-
-
 
 // credit to: https://www.geeksforgeeks.org/tcp-server-client-implementation-in-c/
 int main()
@@ -61,5 +57,3 @@ int main()
   free_buffer(&buffer);
   return 0;
 }
-
-

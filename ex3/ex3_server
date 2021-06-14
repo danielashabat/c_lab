@@ -26,7 +26,6 @@ correct_request = "GET /counter HTTP"
 
 while True:
   in_message = recv_message(s)
-  print("-SERVER- recieved message:\n"+in_message)
   request = in_message[:17]
   if request == correct_request:
     counter = counter + 1 
@@ -40,6 +39,5 @@ while True:
   send_message(s,out_message)
   
   
-  print("-SERVER- sent message:\n"+out_message)
 
 s.close()

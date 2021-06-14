@@ -27,7 +27,7 @@ void initialize_buffer(Buffer* buff)
 
 void free_buffer(Buffer* buff) { free(buff->data); }
 
-void append_to_buffer(Buffer* buff,const char* text, int chars_to_write)
+void append_to_buffer(Buffer* buff, const char* text, int chars_to_write)
 {
   int i;
 try_to_write:
@@ -47,15 +47,6 @@ try_to_write:
     goto try_to_write;
   }
   update_number_of_suffixes(buff);
-}
-
-void print_buffer(Buffer* buff)
-{
-  int i;
-  for (i = 0; i < buff->chars_count; i++) {
-    printf("%c", buff->data[i]);
-  }
-  printf("\n");
 }
 
 void update_number_of_suffixes(Buffer* buff)

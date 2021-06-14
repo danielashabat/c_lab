@@ -1,4 +1,5 @@
 #include "socket_tools.h"
+#include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,7 +13,6 @@
 
 int generate_random_port();
 void write_port_to_file(int port, int socket_type);
-
 
 // the functions returns the message length
 int ReceiveMsg(int socket, Buffer* BufferToReceive, int required_suffixes)
@@ -31,9 +31,6 @@ int ReceiveMsg(int socket, Buffer* BufferToReceive, int required_suffixes)
 
     append_to_buffer(BufferToReceive, temp_buffer, recv_len);
 
-    // for debug:
-    printf("-LB- recieved message:\n");
-    print_buffer(BufferToReceive);
     message_len += recv_len;
   }
   return message_len;
@@ -64,52 +61,44 @@ int generate_random_port() { return (rand() % (UPPER_PORT_LIMIT - LOWER_PORT_LIM
 
 void write_port_to_file(int port, int socket_type)
 {
-    char file_name[FILE_NAME];
-    if (socket_type == SERVER) {
-        strcpy(file_name, "server_port");
-    } else {
-        strcpy(file_name, "http_port");
-    }
+  char file_name[FILE_NAME];
+  if (socket_type == SERVER) {
+    strcpy(file_name, "server_port");
+  } else {
+    strcpy(file_name, "http_port");
+  }
 
-    FILE* file = fopen(file_name, "w");
-    fprintf(file, "%d", port);
-    fclose(file);
+  FILE* file = fopen(file_name, "w");
+  fprintf(file, "%d", port);
+  fclose(file);
 }
 
 int create_new_socket()
 {
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == -1) {
-        printf("socket creation failed...\n");
-        exit(0);
-    } else {
-        printf("Socket successfully created..\n");
-    }
-    return sock;
+  int sock = socket(AF_INET, SOCK_STREAM, 0);
+  if (sock == -1) {
+    printf("socket creation failed...\n");
+    exit(0);
+  }
+  return sock;
 }
 
 void bind_and_listen(int sock, int socket_type)
 {
-    struct sockaddr_in servaddr;
-    int port;
-    bzero(&servaddr, sizeof(servaddr));
+  struct sockaddr_in servaddr;
+  int port;
+  bzero(&servaddr, sizeof(servaddr));
 
-    do {
-        port = generate_random_port();
-        printf("generate new port number...\n");
-        printf("port number is: %d\n", port);
-        write_port_to_file(port, socket_type);
-        servaddr.sin_family = AF_INET;
-        servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-        servaddr.sin_port = htons(port);
-    } while ((bind(sock, (struct sockaddr*)&servaddr, sizeof(servaddr))) != 0);
+  do {
+    port = generate_random_port();
+    write_port_to_file(port, socket_type);
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    servaddr.sin_port = htons(port);
+  } while ((bind(sock, (struct sockaddr*)&servaddr, sizeof(servaddr))) != 0);
 
-    printf("Socket successfully binded..\n");
-
-    if ((listen(sock, 1)) != 0) {
-        printf("Listen failed...\n");
-        exit(0);
-    } else {
-        printf("lb listening..\n");
-    }
+  if ((listen(sock, 1)) != 0) {
+    printf("Listen failed...\n");
+    exit(0);
+  }
 }
